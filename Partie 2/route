@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+// test
 app.get('/products', (req, res) => {
     const { category, inStock } = req.query;
     let query = productsDb.get('products');
