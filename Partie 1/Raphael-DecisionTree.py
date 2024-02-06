@@ -51,7 +51,7 @@ def predict():
 
 if __name__ == '__main__':
     # Load and preprocess the dataset
-    df = preprocess_data('Housing.csv')
+    df = preprocess_data('Partie 1\Housing.csv')
     X = df.drop('price', axis=1)
     y = df['price']
     # Train the model and evaluate its performance

@@ -23,7 +23,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Chargement des données depuis un fichier CSV
-data = pd.read_csv('Housing.csv', delimiter= ',')
+data = pd.read_csv('Partie 1\Housing.csv', delimiter= ',')
 
 # Nettoyage des données : suppression des lignes avec des valeurs manquantes et conversion des valeurs catégorielles en numériques
 df = pd.DataFrame(data)
@@ -76,7 +76,7 @@ dt_r2 = r2_score(y_test, dt_prediction)
 print("R2 pour le modèle de Boosting de Gradient:", dt_r2)
 
 # Route pour faire des prédictions via une API REST
-@app.route('/http://127.0.0.1:5000/predict', methods=['GET'])
+@app.route('/predict', methods=['GET'])
 def predict():
     try:
         # Extraction des paramètres de la requête
