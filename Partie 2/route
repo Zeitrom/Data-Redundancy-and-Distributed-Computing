@@ -1,0 +1,31 @@
+app.get('/products', (req, res) => {
+    const { category, inStock } = req.query;
+    let query = productsDb.get('products');
+    
+    if (category) {
+        query = query.filter({ category });
+    }
+    if (inStock) {
+        query = query.filter(p => p.stockStatus === (inStock === 'true'));
+    }
+    
+    res.json(query.value());
+});
+app.get('/products/:id', (req, res) => {
+    const product = productsDb.get('products').find({ id: req.params.id }).value();
+    res.json(product);
+});
+app.post('/products', (req, res) => {
+    const product = req.body;
+    productsDb.get('products').push(product).last().assign({ id: Date.now().toString() }).write();
+    res.json(product);
+});
+app.put('/products/:id', (req, res) => {
+    const update = req.body;
+    productsDb.get('products').find({ id: req.params.id }).assign(update).write();
+    res.json(productsDb.get('products').find({ id: req.params.id }).value());
+});
+app.delete('/products/:id', (req, res) => {
+    productsDb.get('products').remove({ id: req.params.id }).write();
+    res.send({ message: 'Product deleted successfully' });
+});
