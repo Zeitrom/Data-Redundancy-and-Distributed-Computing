@@ -23,7 +23,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Chargement des données depuis un fichier CSV
-data = pd.read_csv('Housing.csv', delimiter= ',')
+data = pd.read_csv('Partie 1\Housing.csv', delimiter= ',')
 
 # Nettoyage des données : suppression des lignes avec des valeurs manquantes et conversion des valeurs catégorielles en numériques
 df = pd.DataFrame(data)

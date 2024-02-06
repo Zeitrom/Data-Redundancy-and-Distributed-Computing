@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestRegressor
 app = Flask(__name__)
 
 # Load dataset
-data = pd.read_csv('Housing.csv', delimiter= ',')
+data = pd.read_csv('Partie 1\Housing.csv', delimiter= ',')
 df = pd.DataFrame(data)
 
 # Data preprocessing

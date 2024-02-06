@@ -13,7 +13,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 # Assuming you have a dataset with the given variables
 # Replace this with your actual dataset
-data = pd.read_csv("Housing.csv", delimiter= ',')
+data = pd.read_csv("Partie 1\Housing.csv", delimiter= ',')
 
 df = pd.DataFrame(data)
 df = df.dropna()
